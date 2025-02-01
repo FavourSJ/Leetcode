@@ -1,3 +1,4 @@
 # Leetcode
-Repository containing answers do different leetcode question
+Repository containing answers to different leetcode question
+
 ...Road to Leetcode grandmaster 
