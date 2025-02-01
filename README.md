@@ -1,2 +1,3 @@
 # Leetcode
-Road to Leetcode grandmaster 
+Repository containing answers do different leetcode question
+...Road to Leetcode grandmaster 
