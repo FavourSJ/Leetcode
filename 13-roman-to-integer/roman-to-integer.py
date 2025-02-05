@@ -1,11 +1,9 @@
 # Time complexity O(n)
 # Space complexity O(1)
 
-# hashmap of 7 values representing the roman numerals
-
 class Solution:
     def romanToInt(self, s: str) -> int:
-
+        # hashmap of 7 values representing the roman numerals
         roman = {
             "I" : 1,
             "V" : 5,
