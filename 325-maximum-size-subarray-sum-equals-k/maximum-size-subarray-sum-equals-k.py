@@ -1,3 +1,5 @@
+# Space Complexity: O(N)
+
 class Solution:
     def maxSubArrayLen(self, nums: List[int], k: int) -> int:
         prefix_sum = 0 # Keeps track of the cumulative sum
