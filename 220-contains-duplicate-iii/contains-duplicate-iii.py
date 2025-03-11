@@ -1,4 +1,4 @@
-# Time Complexity O(n logk)
+# Time Complexity O(nlogk)
 
 class Solution:
     def containsNearbyAlmostDuplicate(self, nums: List[int], indexDiff: int, valueDiff: int) -> bool:
