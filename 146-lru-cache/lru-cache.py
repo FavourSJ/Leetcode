@@ -1,3 +1,5 @@
+# Time complexity: O(1)ForBothGet()AndPut()
+
 class Node:
     def __init__(self, key, val):
         self.key, self.val = key, val
