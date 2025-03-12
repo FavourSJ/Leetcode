@@ -1,3 +1,6 @@
+# Time Complexity: O(N*M)
+# Space Complexity: O(N)
+
 class Solution:
     def countGoodSubsequences(self, s: str) -> int:
         dict1 = collections.Counter(s)
