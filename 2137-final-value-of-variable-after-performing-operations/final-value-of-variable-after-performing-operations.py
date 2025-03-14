@@ -3,9 +3,8 @@ class Solution:
         res = 0
 
         for i in operations:
-            if "-" in i:
-                res -= 1
-            else:
+            if i == "++X" or i == "X++":
                 res += 1
-
+            elif i == "--X" or i == "X--":
+                res -= 1
         return res
