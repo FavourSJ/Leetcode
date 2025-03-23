@@ -1,13 +1,9 @@
-# hard part is not using any memory
-
-# Time complexity
-# Space complexity
-
 class Solution:
     def singleNumber(self, nums: List[int]) -> int:
-        res = 0 # creating the result
-
+# creating the result
+        res = 0
+# iterate through the array
         for n in nums:
-            res = n ^ res # xor the code so that if the number is the same it wont return it
+# using the xor operation which returns a duplicate already
+            res = n ^ res
         return res
-        
