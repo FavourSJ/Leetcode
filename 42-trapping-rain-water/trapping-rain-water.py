@@ -1,5 +1,5 @@
-
-# equation min(l, r) - h[i]
+# Time Complexity O(N)
+# Space Complexity O(1)
 
 class Solution:
     def trap(self, height: List[int]) -> int:
