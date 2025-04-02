@@ -1,3 +1,6 @@
+# Time complexity: O(N)
+# Space Complexity: O(1)
+
 class Solution:
     def firstUniqChar(self, s: str) -> int:
         count = defaultdict(int)
