@@ -1,3 +1,6 @@
+# Time Complexity: O(M*N)
+# Space Complexity: O(M*N)
+
 class Solution:
     def minPathSum(self, grid: List[List[int]]) -> int:
         ROWS = len(grid)
