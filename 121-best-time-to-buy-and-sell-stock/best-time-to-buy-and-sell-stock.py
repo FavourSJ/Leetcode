@@ -3,17 +3,28 @@
 
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
-        l = 0 # buying
-        r = 1 # selling
+        # pointer for the left
+        l = 0
+        # pointer for the right 1 position ahead
+        r = 1
+        # create a place to store the max profit
         maxP = 0
 
+        # while loop to iterate through the array as long as there are values
         while r < len(prices):
-            #profitable
-            if prices[l] < prices[r]: # checking if buying is less than selling
-                profit = prices[r] - prices[l] # calculation for profit
-                maxP = max(maxP, profit) # store maximum profit
+            #if the price before is less than the prices after...
+            if prices[l] < prices[r]:
+                # calculate the profit and store the result
+                profit = prices[r] - prices[l]
+                # compare this value to the max profit
+                maxP = max(maxP, profit)
+        # if it is not greater than the previous maxprofit...
             else:
-                l = r # shift the left pointer all the way to the lowest point
-            r += 1 # keep on checking the sell price of the next point
-        return maxP # return max profit
+                # shift the left pointer to the new "lowest position" r will automatically go there
+                l = r
+        #then keep iterating through
+            r += 1
+
+        # return this final max profit
+        return maxP
         
