@@ -2,33 +2,52 @@
 
 class Solution:
     def numIslands(self, grid: List[List[str]]) -> int:
-        islands = 0 # counter to keep track of the islands found
-        rows, cols = len(grid), len(grid[0])
+        islands = 0
 
-        def bfs(r, c): #Function -> Breadth-First Search (BFS) to explore and mark all cells of the island
-            q = deque() # que to process cells and pop from the front
-            q.append((r, c)) # add starting cell to the que
+        # dimensions of the grid
+        rows = len(grid)
+        cols = len(grid[0])
+
+        def bfs(r, c):
+            # store the cells to be processed in a queue
+            q = deque()
+            # start BFS from the given land cell
+            q.append((r,c))
+            # mark the starting cell as visited
             grid[r][c] = "0"
 
-            # while loop to process every cell till the end
-            while q: 
-                row, col = q.popleft() # dequeue the front cell
-                directions = [[1,0],[-1,0],[0,1],[0,-1]] # four possible movements (vector)
+            # define directions of possible movement (up, down, left, right)
+            directions = [
+                [1,0],
+                [-1,0],
+                [0,1],
+                [0,-1]
+            ]
 
-                for dr, dc in directions: # iterates through each direction
-                    r, c = row + dr, col + dc # compute the new cells coordinates
-                    # ensure the new cell is within boundary
-                    if 0 <= r < rows and 0 <= c < cols and grid[r][c] == "1":
-                        # if TRUE add the new cell to the que and mark as visited
-                        q.append((r, c)) 
-                        grid[r][c] = "0"
-       
-        for r in range(rows): # loop through each row
-            for c in range(cols): # loop through each column in the current row
-                if grid[r][c] == "1": # check if cell is an island and not visited
-                    # if TRUE add 1 to the island counter
-                    islands = islands + 1
-                    # call bfs to mark all connected land cells of this island
+            # start processing the cells in the queue
+            # so while we "have cells"
+            while q:
+                row, col = q.popleft()
+
+                # explore the four directions
+                for dr, dc in directions:
+                    # find the new cell coordinates
+                    new_r, new_c = row + dr, col + dc
+
+                    if 0 <= new_r < rows and 0 <= new_c < cols and grid[new_r][new_c] == "1":
+                        # add new cell to the queue
+                        q.append((new_r, new_c))
+                        # mark as visited
+                        grid[new_r][new_c] = "0"
+
+        # iterate through the rest of the cells in the grid
+        for r in range(rows):
+            for c in range(cols):
+                # if the cell is '1', then we have found a new island!
+                if grid[r][c] == "1":
+                    # add 1 to the number of islands
+                    islands += 1
+                    # call bfs to mark the connected islands
                     bfs(r, c)
 
         return islands
