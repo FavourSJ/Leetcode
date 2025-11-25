@@ -1,19 +1,28 @@
 # Binary search problme
 class Solution:
     def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
+        # dimensions of matrix
+        ROWS = len(matrix)
+        COLS = len(matrix[0])
+        
         if not matrix or not matrix[0]:
             return False
 
-        ROWS, COLS = len(matrix), len(matrix[0])
-        row, col = 0, COLS - 1  # Start from the top-right corner
+        # start from the top right corner
+        row = 0
+        col = COLS - 1
 
-        # Move until we either find the target or go out of bounds
+        # move until we either find a target or go out of bounds
         while row < ROWS and col >= 0:
             if matrix[row][col] == target:
-                return True       # Found the target
+                # found the target so output ture
+                return True
             elif matrix[row][col] > target:
-                col -= 1          # Current value too large, move left
+                # current value to big so move left
+                col -= 1
             else:
-                row += 1          # Current value too small, move down
+                # current value to small so move down
+                row += 1
 
-        return False               # Target not found
+        # target not found
+        return False
