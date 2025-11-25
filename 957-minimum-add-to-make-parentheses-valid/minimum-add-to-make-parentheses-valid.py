@@ -1,14 +1,19 @@
 class Solution:
     def minAddToMakeValid(self, s: str) -> int:
-        openP = 0
-        closedP = 0
+        # count for open brackets
+        openB = 0
+        #count for closed brackers
+        closedB = 0
 
-        for c in s:
-            if c == '(':
-                openP += 1
-            elif c == ')' and openP > 0:
-                openP -= 1
+        for ch in s:
+            if ch == "(":
+                # confiremd open bracket
+                openB += 1
+                # we have found a match so no need to add an open bracket here
+            elif ch == ")" and openB > 0:
+                openB -= 1
             else:
-                closedP += 1
-        
-        return openP + closedP
+                # no open bracket to match what we need
+                closedB += 1
+
+        return openB + closedB
