@@ -1,26 +1,30 @@
 class Solution:
     def allPathsSourceTarget(self, graph: List[List[int]]) -> List[List[int]]:
-        res = []  # Stores all valid paths from source to target
+        # store all valid paths from source to target
+        res = []
         queue = deque()
-        queue.append([0])  # Start with a path containing only the source node (0)
+        # start with a path containing only the source node
+        queue.append([0])
+        # target node is the last one
+        target = len(graph) - 1
 
-        target = len(graph) - 1  # Target node is the last node
-
-        # Process the queue until no paths are left
+        # process through the queue until no paths are left
         while queue:
-            path = queue.popleft()  # Get the next path to explore
-            last_node = path[-1]    # Current node is the last element in the path
+            # get the next path to explore
+            path = queue.popleft()
+            # current node is the last element in the path
+            last_node = path[-1]
 
-            # If last node is the target, add the path to the results
+            # if the last node is the target and the path to the results
             if last_node == target:
                 res.append(path)
-                continue  # No need to explore further from the target
+                continue
 
-            # Otherwise, extend the path to all neighbors of the last node
+            # otherwise extend the path to all neighbours of the last node
             for nei in graph[last_node]:
-                # Create a new path by appending the neighbor
-                # This ensures original path is not modified (important for other branches)
+                # create a new path appending it to the neigbour
+                # this ensures the original path is not modified
                 new_path = path + [nei]
-                queue.append(new_path)  # Add the new path to the queue for further exploration
+                queue.append(new_path)
 
-        return res  # Return all found paths
+        return res
