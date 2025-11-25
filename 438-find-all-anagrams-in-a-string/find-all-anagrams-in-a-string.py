@@ -7,25 +7,31 @@ class Solution:
         if len_p > len_s:
             return []
 
-        p_count = Counter(p)           # Frequency of characters in p
-        window_count = Counter(s[:len_p])  # Initial window in s
+        # frequency of characters in p
+        p_count = Counter(p)
+        # initial window in s
+        window_count = Counter(s[:len_p])
 
         res = []
-        if window_count == p_count:    # Check first window
+        # check the first window
+        if window_count == p_count:
             res.append(0)
 
-        # Slide the window across s
+        # slide the window across s
         for i in range(len_p, len_s):
-            start_char = s[i - len_p]  # Character leaving the window
-            end_char = s[i]            # Character entering the window
+            # start the character leaving the window
+            start_char = s[i - len_p]
+            # character entering the window
+            end_char = s[i]
 
-            # Update the window counter
+            # update the window character
             window_count[end_char] = window_count.get(end_char, 0) + 1
             window_count[start_char] -= 1
             if window_count[start_char] == 0:
-                window_count.pop(start_char)  # Remove zero-count chars for clean comparison
+                # remove zero count chars for clean comparison
+                window_count.pop(start_char)
 
-            # Compare current window with p
+            # compare the current window with p
             if window_count == p_count:
                 res.append(i - len_p + 1)
 
