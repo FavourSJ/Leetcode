@@ -1,11 +1,12 @@
 class Solution:
     def canConstruct(self, ransomNote: str, magazine: str) -> bool:
 
-        x = Counter(ransomNote)
-        y = Counter(magazine)
+        hashmap = Counter(magazine)
 
-        if x & y == x:
-            return True
-        return False
-
+        for char in ransomNote:
+            if hashmap[char] > 0:
+                hashmap[char] -= 1
+            else:
+                return False
+        return True
         
