@@ -6,6 +6,9 @@
 #         self.right = right
 class Solution:
     def maxDepth(self, root: Optional[TreeNode]) -> int:
+# Recursive DFS
+# T = O(n)
+# S = O(n)
         if not root:
             return 0
 
