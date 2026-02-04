@@ -20,3 +20,6 @@ class Solution:
                 words.append(s[word_start:i]) 
         # Reverse the list of words and join them with single spaces
         return " ".join(words[::-1])
+
+        # T O(n)
+        # S O(n)
